@@ -1,5 +1,7 @@
 
 import { TrendingUp, TrendingDown, Search, Zap, Star, DollarSign } from "lucide-react";
+import { ThemeToggle } from "./ThemeProvider";
+
 export default function Header() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 rounded-3xl p-8 mb-8 text-white">
@@ -10,41 +12,22 @@ export default function Header() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
       
-      <div className="relative z-10 text-center">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl">
-            <Zap className="w-8 h-8 text-yellow-400" />
+      <div className="relative z-10 flex justify-between items-center">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl">
+              <Zap className="w-8 h-8 text-yellow-400" />
+            </div>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+              CryptoVault
+            </h1>
           </div>
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-            CryptoVault
-          </h1>
+          <p className="text-lg text-purple-200 mb-6">Real-time cryptocurrency market insights</p>
         </div>
-        <p className="text-lg text-purple-200 mb-6">Real-time cryptocurrency market insights</p>
         
-        {/* Stats cards */}
-       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div className="flex items-center gap-2 text-green-400">
-              <TrendingUp className="w-5 h-5" />
-              <span className="text-sm font-medium">24h Gainers</span>
-            </div>
-            <p className="text-2xl font-bold text-white mt-1">67%</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div className="flex items-center gap-2 text-blue-400">
-              <DollarSign className="w-5 h-5" />
-              <span className="text-sm font-medium">Market Cap</span>
-            </div>
-            <p className="text-2xl font-bold text-white mt-1">$2.1T</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div className="flex items-center gap-2 text-purple-400">
-              <Star className="w-5 h-5" />
-              <span className="text-sm font-medium">Active Coins</span>
-            </div>
-            <p className="text-2xl font-bold text-white mt-1">2,847</p>
-          </div>
-        </div>*/}
+        <div>
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   );
