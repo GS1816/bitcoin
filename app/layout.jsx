@@ -1,16 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// import { ThemeProvider } from "@/components/ThemeProvider"; // Remove this line
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "BitCoin Live",
@@ -19,11 +11,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased h-full bg-gray-50 text-gray-900 transition-colors duration-300`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        {/* <ThemeProvider> */}
+          {children}
+          <Toaster richColors theme="system" position="top-right" />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
